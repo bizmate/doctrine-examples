@@ -1,0 +1,23 @@
+App\Entity\Review:
+  type: entity
+  table: review
+  id:
+    id:
+      type: string
+  fields:
+    rating:
+      type: integer
+      nullable: false
+    text:
+      type: text
+      nullable: true
+
+
+  manyToOne:
+    user:
+      targetEntity: User
+      joinColumn:
+        name: user_id
+        referencedColumnName: id
+      cascade: [ all ]
+      fetch: EAGER

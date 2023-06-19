@@ -1,0 +1,44 @@
+App\Entity\Business:
+  type: entity
+  table: business
+  repositoryClass: App\Infrastructure\Persistence\Doctrine\BusinessRepository
+  id:
+    id:
+      type: string
+      generator:
+        strategy: NONE
+  fields:
+    alias:
+      type: string
+      length: 255
+      nullable: false    
+    name:
+      type: string
+      length: 255
+      nullable: false
+    reviewCount:
+      type: integer
+      nullable: false
+    rating:
+      type: float
+      nullable: false
+
+
+  manyToMany:
+    reviews:
+      targetEntity: Review
+      joinTable:
+        name: businesses_reviews
+        joinColumns:
+          business_id:
+            referencedColumnName: id
+            onDelete: CASCADE
+        inverseJoinColumns:
+          review_id:
+            referencedColumnName: id
+            unique: true
+            onDelete: CASCADE
+      #cascade: [ persist, remove ]
+      cascade: [ all ]
+      fetch: EAGER
+      orderBy: { 'createTimestamp': 'DESC' }
