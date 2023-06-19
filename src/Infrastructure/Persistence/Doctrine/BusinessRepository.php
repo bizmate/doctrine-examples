@@ -38,7 +38,12 @@ class BusinessRepository extends ServiceEntityRepository implements BusinessRepo
     public function save(Business $business): bool
     {
         try{
-            $this->getEntityManager()->persist($business);
+            $businessFound = $this->findOneBy( array('alias'=>$business->getAlias()));
+            
+            if (!$businessFound instanceof Business) {
+                $this->getEntityManager()->persist($business);
+            }
+            
             $this->getEntityManager()->flush();
         }
         catch (\Exception $e) {
