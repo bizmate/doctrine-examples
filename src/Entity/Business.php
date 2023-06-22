@@ -44,14 +44,7 @@ class Business implements \JsonSerializable
      * @var float
      */
     private float $rating;
-    /**
-     * @var DateTimeImmutable
-     */
-    private DateTimeImmutable $createDate;
-    /**
-     * @var DateTimeImmutable
-     */
-    private DateTimeImmutable $updateDate;
+
     /**
      * Notice: Reviews is an ArrayCollection. If i typehint this as Reviews then Doctrine will not be able to pass
      * PersistentCollection and will throw an error. As such we hint it as the Collection interface
@@ -66,8 +59,6 @@ class Business implements \JsonSerializable
      * @param string $name
      * @param int $reviewCount
      * @param float $rating
-     * @param DateTimeImmutable $createDate
-     * @param DateTimeImmutable $updateDate
      * @param Reviews|null $reviews
      */
     public function __construct(
@@ -76,8 +67,6 @@ class Business implements \JsonSerializable
         string $name,
         int $reviewCount,
         float $rating,
-        DateTimeImmutable $createDate,
-        DateTimeImmutable $updateDate,
         Reviews $reviews = null
     ) {
         $this->id = $id;
@@ -85,8 +74,6 @@ class Business implements \JsonSerializable
         $this->name = $name;
         $this->reviewCount = $reviewCount;
         $this->rating = $rating;
-        $this->createDate = $createDate;
-        $this->updateDate = $updateDate;
         $this->reviews = $reviews ?? new Reviews();
     }
 
@@ -128,22 +115,6 @@ class Business implements \JsonSerializable
     public function getRating(): float
     {
         return $this->rating;
-    }
-
-    /**
-     * @return DateTimeImmutable
-     */
-    public function getCreateDate(): DateTimeImmutable
-    {
-        return $this->createDate;
-    }
-
-    /**
-     * @return DateTimeImmutable
-     */
-    public function getUpdateDate(): DateTimeImmutable
-    {
-        return $this->updateDate;
     }
 
     /**

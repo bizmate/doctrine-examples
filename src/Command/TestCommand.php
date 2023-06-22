@@ -7,6 +7,7 @@
 namespace App\Command;
 
 use App\DataProvider\BusinessEntityProvider;
+use App\DataProvider\BusinessFixturesProvider;
 use App\Entity\Business;
 use App\Entity\Reviews;
 use App\Infrastructure\BusinessRepositoryInterface;
@@ -22,26 +23,12 @@ class TestCommand extends Command
 
     // the name of the command (the part after "bin/console")
     protected static $defaultName = 'app:business:test';
-    
-    private $businessRepository;
-
-    /**
-     * @var LoggerInterface
-     */
-    private $logger;
-    
-    /**
-     * @var BusinessEntityProvider
-     */
-    private $businessEntityProvider;
 
     public function __construct(
-        LoggerInterface $logger, BusinessRepositoryInterface $businessRepository, BusinessEntityProvider $businessEntityProvider)
+        private LoggerInterface $logger, private BusinessRepositoryInterface $businessRepository,
+        private BusinessFixturesProvider $businessFixturesProvider
+    )
     {
-        $this->logger = $logger;
-        $this->businessRepository = $businessRepository;
-        $this->businessEntityProvider = $businessEntityProvider;
-
         parent::__construct();
     }
 
@@ -57,14 +44,18 @@ class TestCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         try {
-            $business = $this->businessEntityProvider->buildWithReviewsAmount(4);
-            $this->businessRepository->save($business);
-            $this->logger->info(__METHOD__ . " saved business with alias: " . $business->getAlias() .
-                " and reviews count: " . $business->getReviewCount()
+            $businessFixture = $this->businessFixturesProvider->getBusiness('aut');
+            $this->logger->debug(
+                __METHOD__ . ' class ' . get_class($businessFixture) . " fixture:" .
+                json_encode($businessFixture)
+            );
+            $this->businessRepository->save($businessFixture);
+            $this->logger->info(__METHOD__ . " saved business with alias: " . $businessFixture->getAlias() .
+                " and reviews count: " . $businessFixture->getReviewCount()
             );
             
-            $testBusiness = $this->businessRepository->getByAliasWithReviewsAmount($business->getAlias(), 4);
-            $this->logger->info(__METHOD__ . " fetched business with alias: " . $business->getAlias() .
+            $testBusiness = $this->businessRepository->getByAliasWithReviewsAmount($businessFixture->getAlias(), 4);
+            $this->logger->info(__METHOD__ . " fetched business with alias: " . $testBusiness->getAlias() .
                  " and reviews count: " . $testBusiness->getReviewCount()
             );
             $testBusinessReviews = $testBusiness->getReviews();
@@ -84,8 +75,7 @@ class TestCommand extends Command
     
             $modifiedTestBusiness = new Business(
                 $testBusiness->getId(), $testBusiness->getAlias(), $testBusiness->getName().'_ChangeName',
-                $testBusiness->getReviewCount() + 1, $testBusiness->getRating(),
-                $testBusiness->getCreateDate(), $testBusiness->getUpdateDate(), $modifiedTestBusinessReviews
+                $testBusiness->getReviewCount() + 1, $testBusiness->getRating(), $modifiedTestBusinessReviews
             );
     
             $this->logger->info(

@@ -6,8 +6,6 @@
 
 namespace App\Entity;
 
-use DateTimeImmutable as DateTimeImmutableAlias;
-
 /**
  * Class Review
  * @package App\Entities

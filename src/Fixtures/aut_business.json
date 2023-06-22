@@ -4,27 +4,15 @@
   "name": "Dr. Kameron Hamill",
   "reviewCount": 4,
   "rating": 1.6,
-  "createDate": {
-    "date": "2021-04-11 21:10:44.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  },
-  "updateDate": {
-    "date": "2011-12-13 04:40:15.000000",
-    "timezone_type": 3,
-    "timezone": "UTC"
-  },
   "reviews": [
     {
       "id": "areview",
       "text": "Aperiam aspernatur deleniti iste alias aperiam atque molestias. Sed quo eligendi impedit autem aut sit et. Quos tenetur quidem hic maxime odio. Deleniti perspiciatis nesciunt eum id.",
       "rating": 1,
       "user": {
-        "id": "qui",
+        "id": "qui3",
         "name": "Shayna Upton Jr."
-      },
-      "createTimestamp":"2021-04-11 21:10:44",
-      "updateTimestamp": "1982-08-08 17:13:21"
+      }
     },
     {
       "id": "A4294967296_",
@@ -33,9 +21,7 @@
       "user": {
         "id": "pariatur",
         "name": "Mike Hegmann"
-      },
-      "createTimestamp": "2020-09-24 09:14:17.000000",
-      "updateTimestamp": "2010-10-26 08:29:51.000000"
+      }
     },
     {
       "id": "A4294967297_",
@@ -44,9 +30,7 @@
       "user": {
         "id": "voluptatem",
         "name": "Camron Mitchell PhD"
-      },
-      "createTimestamp": "1979-06-24 15:01:02.000000",
-      "updateTimestamp": "2022-03-02 22:23:32.000000"
+      }
     },
     {
       "id": "A4294967298_",
@@ -55,9 +39,7 @@
       "user": {
         "id": "qui",
         "name": "Shayna Upton Jr."
-      },
-      "createTimestamp": "1970-11-25 01:59:31.000000",
-      "updateTimestamp": "1982-08-08 17:13:21.000000"
+      }
     }
   ]
 }
