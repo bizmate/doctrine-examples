@@ -1,0 +1,95 @@
+{
+  "id": "similique",
+  "alias": "roconnell",
+  "name": "Mrs. Samanta Zboncak DDS",
+  "reviewCount": 4,
+  "rating": 4.3,
+  "createDate": {
+    "date": "1992-12-25 00:25:18.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "updateDate": {
+    "date": "1978-09-19 08:38:10.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "reviews": [
+    {
+      "id": "4294967295",
+      "text": "Reprehenderit et eos facilis qui velit. Quo non quasi laborum voluptatum excepturi consectetur. Voluptatem pariatur accusantium accusantium dignissimos tempora possimus est ut.",
+      "rating": 4,
+      "user": {
+        "id": "et",
+        "name": "Modesta McClure"
+      },
+      "createTimestamp": {
+        "date": "1997-08-11 11:17:48.000000",
+        "timezone_type": 3,
+        "timezone": "UTC"
+      },
+      "updateTimestamp": {
+        "date": "1972-07-05 19:07:55.000000",
+        "timezone_type": 3,
+        "timezone": "UTC"
+      }
+    },
+    {
+      "id": "4294967296",
+      "text": "Dolorum beatae enim saepe. Vel molestias ipsam ad. Vel ad et id omnis est in molestias perferendis. Occaecati nihil labore soluta quas magnam nihil ea.",
+      "rating": 1,
+      "user": {
+        "id": "maxime",
+        "name": "Dr. Brayan Heathcote PhD"
+      },
+      "createTimestamp": {
+        "date": "2003-02-07 12:52:22.000000",
+        "timezone_type": 3,
+        "timezone": "UTC"
+      },
+      "updateTimestamp": {
+        "date": "2009-04-10 07:53:44.000000",
+        "timezone_type": 3,
+        "timezone": "UTC"
+      }
+    },
+    {
+      "id": "4294967297",
+      "text": "Quia iusto illo officiis est voluptatum. Non occaecati quis saepe iusto exercitationem eos. Non temporibus error similique perferendis.",
+      "rating": 4,
+      "user": {
+        "id": "molestiae",
+        "name": "Mrs. Hassie Fadel"
+      },
+      "createTimestamp": {
+        "date": "2019-02-10 10:26:39.000000",
+        "timezone_type": 3,
+        "timezone": "UTC"
+      },
+      "updateTimestamp": {
+        "date": "1982-07-31 06:21:01.000000",
+        "timezone_type": 3,
+        "timezone": "UTC"
+      }
+    },
+    {
+      "id": "4294967298",
+      "text": "Ut praesentium asperiores id exercitationem ut. Ad doloribus repellendus quibusdam odio impedit corrupti quisquam. Dicta facilis aut sunt qui a nihil nobis.",
+      "rating": 1,
+      "user": {
+        "id": "sit",
+        "name": "Tanner Grant"
+      },
+      "createTimestamp": {
+        "date": "2019-11-01 21:06:07.000000",
+        "timezone_type": 3,
+        "timezone": "UTC"
+      },
+      "updateTimestamp": {
+        "date": "1996-01-05 12:17:22.000000",
+        "timezone_type": 3,
+        "timezone": "UTC"
+      }
+    }
+  ]
+}

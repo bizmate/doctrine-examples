@@ -12,8 +12,10 @@ use DateTimeImmutable as DateTimeImmutableAlias;
  * Class Review
  * @package App\Entities
  */
-class Review
+class Review implements \JsonSerializable
 {
+    use JsonSerialize;
+    
     /**
      * @var string
      */
@@ -30,14 +32,6 @@ class Review
      * @var User
      */
     private User $user;
-    /**
-     * @var DateTimeImmutableAlias
-     */
-    private $createTimestamp;
-    /**
-     * @var DateTimeImmutableAlias
-     */
-    private $updateTimestamp;
 
     /**
      * Forced by doctrine
@@ -51,23 +45,17 @@ class Review
      * @param string $text
      * @param int $rating
      * @param User $user
-     * @param DateTimeImmutableAlias $createTimestamp
-     * @param DateTimeImmutableAlias $updateTimestamp
      */
     public function __construct(
         string $id,
         string $text,
         int $rating,
-        User $user,
-        DateTimeImmutableAlias $createTimestamp,
-        DateTimeImmutableAlias $updateTimestamp
+        User $user
     ) {
         $this->id = $id;
         $this->text = $text;
         $this->rating = $rating;
         $this->user = $user;
-        $this->createTimestamp = $createTimestamp;
-        $this->updateTimestamp = $updateTimestamp;
     }
 
     /**
@@ -100,22 +88,6 @@ class Review
     public function getBusiness(): Business
     {
         return $this->business;
-    }
-
-    /**
-     * @return DateTimeImmutableAlias
-     */
-    public function getCreateTimestamp(): DateTimeImmutableAlias
-    {
-        return $this->createTimestamp;
-    }
-
-    /**
-     * @return DateTimeImmutableAlias
-     */
-    public function getUpdateTimestamp(): DateTimeImmutableAlias
-    {
-        return $this->updateTimestamp;
     }
 
     /**

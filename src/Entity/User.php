@@ -5,8 +5,10 @@ namespace App\Entity;
 /**
  *
  */
-class User
+class User implements \JsonSerializable
 {
+    use JsonSerialize;
+    
     /**
      * @var string
      */

@@ -14,14 +14,16 @@ namespace App\Entity;
  */
 
 use DateTimeImmutable;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 /**
  * Class Shop
  * @package App\Entities
  */
-class Business
+class Business implements \JsonSerializable
 {
+    use JsonSerialize;
     /**
      * @var string
      */
@@ -54,7 +56,7 @@ class Business
      * Notice: Reviews is an ArrayCollection. If i typehint this as Reviews then Doctrine will not be able to pass
      * PersistentCollection and will throw an error. As such we hint it as the Collection interface
      *
-     * @var Reviews
+     * @var Doctrine\Common\Collections\Collection<Review>
      */
     private Collection $reviews;
     
