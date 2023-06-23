@@ -43,6 +43,13 @@ class BusinessRepository extends ServiceEntityRepository implements BusinessRepo
             if (!$businessFound instanceof Business) {
                 $this->getEntityManager()->persist($business);
             }
+            else{
+                $businessFound->setReviews($business->getReviews());
+//                $businessFoundReflection =  new \ReflectionClass($businessFound);
+//                $businessFoundReflection->setName( $business->getName());
+//                $businessFoundReflection->setRating( $business->getRating());
+//                $businessFoundReflection->setReviewCount( $business->getReviewCount());
+            }
             
             $this->getEntityManager()->flush();
         }
@@ -57,7 +64,7 @@ class BusinessRepository extends ServiceEntityRepository implements BusinessRepo
             
             return false;
         }
-        
+
         return true;
     }
 
@@ -102,5 +109,15 @@ class BusinessRepository extends ServiceEntityRepository implements BusinessRepo
         }
 
         throw new \Exception();
+    }
+    
+    public function deleteAll(): bool {
+        $businesses = $this->findAll();
+        
+        foreach ($businesses as $business) {
+            $this->remove($business);
+        }
+        
+        return true;
     }
 }

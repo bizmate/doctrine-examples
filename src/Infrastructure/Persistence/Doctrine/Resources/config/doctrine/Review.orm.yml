@@ -20,4 +20,5 @@ App\Entity\Review:
         name: user_id
         referencedColumnName: id
       cascade: [ all ]
+      orphanRemoval: true
       fetch: EAGER

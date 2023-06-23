@@ -40,5 +40,6 @@ App\Entity\Business:
             onDelete: CASCADE
       #cascade: [ persist, remove ]
       cascade: [ all ]
+      orphanRemoval: true
       fetch: EAGER
       #orderBy: { 'createTimestamp': 'DESC' }
